@@ -13,6 +13,11 @@ const userSchema = mongoose.Schema({
         required: [true, "The email is required"],
         unique: [true, "The email is already in use"],
     },
+    password: {
+        type: String,
+        required: true,
+        select: false
+    },
     firstName: {type: String, required: true},
     lastName: {type: String, default: ""},
     level: {type: Number, min: 0, default: 0},
