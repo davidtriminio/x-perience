@@ -1,8 +1,10 @@
 import express from "express"
 import {ENV} from "./config/env.js"
+import { connectDB } from "./db/db.js"
 
 const app = express()
 
+connectDB()
 app.use(express.json())
 app.get('/', (req, res) => {
     res.send("Connected")
