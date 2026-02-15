@@ -14,10 +14,10 @@ const userSchema = mongoose.Schema({
         unique: [true, "The email is already in use"],
     },
     firstName: {type: String, required: true},
-    lastName: {type: String},
-    level: {type: Number, min: 0},
-    xp: {type: Number, min: 0},
-    imageUrl: {type: String},
+    lastName: {type: String, default: ""},
+    level: {type: Number, min: 0, default: 0},
+    xp: {type: Number, min: 0, default: 0},
+    imageUrl: {type: String, default: ""},
 }, {timestamps: true});
 
 export const User = mongoose.model('User', userSchema)
