@@ -1,15 +1,21 @@
 import React from "react";
+import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from '@clerk/clerk-react';
+
 
 const App = () => {
-  return (
-    <span className="flex items-center">
-      <span className="h-px flex-1 bg-gray-300 dark:bg-gray-600"></span>
-
-      <span className="shrink-0 px-4 text-gray-900 dark:text-gray-600">X-perience</span>
-
-      <span className="h-px flex-1 bg-gray-300 dark:bg-gray-600"></span>
-    </span>
-  );
+    return (
+        <header>
+            {/* Show the sign-in and sign-up buttons when the user is signed out */}
+            <SignedOut>
+                <SignInButton mode="modal"/>
+                <SignUpButton mode="modal"/>
+            </SignedOut>
+            {/* Show the user button when the user is signed in */}
+            <SignedIn>
+                <UserButton/>
+            </SignedIn>
+        </header>
+    );
 };
 
 export default App;
