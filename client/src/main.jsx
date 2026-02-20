@@ -5,6 +5,7 @@ import App from './App.jsx'
 import {ENV} from "./config/env.js";
 import { ClerkProvider } from '@clerk/clerk-react'
 import {BrowserRouter} from "react-router-dom";
+import {Toaster} from "react-hot-toast";
 
 const PUBLISHABLE_KEY = ENV.CLERK_PUBLISHABLE_KEY
 
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <BrowserRouter>
               <App />
           </BrowserRouter>
+          <Toaster position={"top-right"}/>
       </ClerkProvider>
   </StrictMode>,
 )
