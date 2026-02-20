@@ -1,20 +1,17 @@
-import React from "react";
-import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from '@clerk/clerk-react';
+import {useAuth} from '@clerk/clerk-react';
+import AuthPage from "./pages/AuthPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import {Routes, Route} from "react-router-dom";
 
 
 const App = () => {
+    const {isSignedIn,isLoaded} = useAuth()
+    if(!isLoaded) return null
     return (
-        <header>
-            {/* Show the sign-in and sign-up buttons when the user is signed out */}
-            <SignedOut>
-                <SignInButton mode="modal"/>
-                <SignUpButton mode="modal"/>
-            </SignedOut>
-            {/* Show the user button when the user is signed in */}
-            <SignedIn>
-                <UserButton/>
-            </SignedIn>
-        </header>
+        <Routes>
+            <Route path='/auth' element={<AuthPage/>}/>
+            <Route path='/' element={<HomePage/>}/>
+        </Routes>
     );
 };
 

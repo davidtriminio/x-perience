@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import {ENV} from "./config/env.js";
 import { ClerkProvider } from '@clerk/clerk-react'
+import {BrowserRouter} from "react-router-dom";
 
 const PUBLISHABLE_KEY = ENV.CLERK_PUBLISHABLE_KEY
 
@@ -14,7 +15,9 @@ if (!PUBLISHABLE_KEY) {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-          <App />
+          <BrowserRouter>
+              <App />
+          </BrowserRouter>
       </ClerkProvider>
   </StrictMode>,
 )
