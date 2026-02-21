@@ -76,3 +76,37 @@
     margin-bottom: 10px;
 }
 
+/* Modo Login */
+.login-mode {
+    border-top: 5px solid #3b82f6;
+}
+
+/* Modo Registro */
+.register-mode {
+    border-top: 5px solid #22c55e;
+}
+
+
+/* Botón Google */
+.oauth-google-btn {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+    background: white;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.oauth-google-btn:hover {
+    background: #f3f4f6;
+}
