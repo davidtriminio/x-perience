@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 import "../styles/auth-styles.css"
 import logo from "../assets/xperience-logo.png"
+import {Chrome} from "lucide-react";
 
 const AuthPage = () => {
     const {signIn, isLoaded: signInLoaded, setActive} = useSignIn();
@@ -21,6 +22,8 @@ const AuthPage = () => {
 
 
     if (!signInLoaded || !signUpLoaded) return null
+
+    // Login Normal
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -39,12 +42,13 @@ const AuthPage = () => {
 
             navigate('/')
         } catch (err) {
-            console.error(err?.errors[0]?.message)
+            console.log("Login Error", err)
             setError(err.errors?.[0]?.message || "Usuario o contraseña incorrectos")
         }
         setLoading(false)
     }
 
+    /*Registro Normal*/
     const handleRegister = async (e) => {
         e.preventDefault()
         setLoading(true)
@@ -63,11 +67,13 @@ const AuthPage = () => {
 
             toast.success("Revisa tu correo para verificar tu cuenta.")
         } catch (err) {
+            console.log("Register Error", err)
             setError(err?.errors[0]?.message || "Register failed")
             setLoading(false)
         }
     }
 
+    // Google Auth (Login/Registro)
     const handleGoogleOAuth = async () => {
         try {
             await signIn.authenticateWithRedirect({
@@ -83,7 +89,8 @@ const AuthPage = () => {
 
     return (
         <div className="auth-container">
-            <form className="auth-card" onSubmit={isRegister ? handleRegister : handleLogin}>
+            <form className={`auth-card ${isRegister ? "register-mode" : "login-mode"}`}
+                  onSubmit={isRegister ? handleRegister : handleLogin}>
                 {/*    Logo */}
                 <img src={logo} alt="Logo" className="auth-logo"/>
                 <h1>X-PERIENCE</h1>
@@ -134,12 +141,18 @@ const AuthPage = () => {
                 <button disabled={loading}>
                     {loading ? "PROCESSING..." : isRegister ? "REGISTRAR" : "ENTRAR"}
                 </button>
-                {!isRegister && (
-                    <button
-                        type="button"
-                        className="oauth-google-btn" onClick={handleGoogleOAuth}
-                        disabled={loading}>{"Entrar con Google"}</button>
-                )}
+
+                {/*Google Button*/}
+
+                <button
+                    type="button"
+                    className="oauth-google-btn" onClick={handleGoogleOAuth}
+                    disabled={loading}>
+                    <Chrome size={18} />
+                    <span>
+                        {isRegister ? "Registrarse con Google" : "Entrar con Google"}
+                    </span>
+                </button>
 
                 {/*    Switch*/}
                 <div className="auth-switch">
@@ -147,12 +160,12 @@ const AuthPage = () => {
                         <>
                             ¿Ya tienes una cuenta?
                             <span onClick={() => setIsRegister(false)}>
-                                {" "}Acceder
+                                {" "}Iniciar Sesión
                             </span>
                         </>
                     ) : (
                         <>
-                            Nuevo Viajero?
+                            ¿Nuevo Aquí? {" "}
                             <span onClick={() => setIsRegister(true)}>Registrar</span>
                         </>
                     )}
