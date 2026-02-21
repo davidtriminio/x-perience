@@ -41,3 +41,38 @@
     margin-top: 15px;
     cursor: pointer;
 }
+
+.auth-logo {
+    width: 70px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px #00ccff88);
+}
+
+.subtitle {
+    color: #00ccff99;
+    margin-bottom: 20px;
+}
+
+.auth-switch {
+    margin-top: 15px;
+    color: #ffffffaa;
+    font-size: 14px;
+}
+
+.auth-switch span {
+    color: #00ccff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-switch span:hover {
+    text-shadow: 0 0 10px #00ccff;
+}
+
+.error {
+    color: #ff5577;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
