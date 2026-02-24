@@ -4,6 +4,7 @@ import {connectDB} from "./db/db.js";
 import {clerkMiddleware} from "@clerk/express";
 import {serve} from "inngest/express"
 import {functions, inngest} from "./config/inngest.js";
+import postsRoutes from "./routes/posts.routes.js"
 
 const app = express()
 
@@ -14,6 +15,8 @@ app.use('/api/inngest', serve({client: inngest, functions}))
 app.get('/', (req, res) => {
     res.send("Connected")
 })
+
+app.get('/api/posts', postsRoutes)
 
 const startServer = async () => {
     try {
