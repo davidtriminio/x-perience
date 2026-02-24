@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.send("Connected")
 })
 
-app.get('/api/posts', postsRoutes)
+app.use('/api/posts', postsRoutes)
 
 const startServer = async () => {
     try {
