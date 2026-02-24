@@ -6,4 +6,4 @@ const postSchema = mongoose.Schema({
     content: {type: String, required: true, maxLength: 500}
 }, {timestamps: true})
 
-export const postModel = mongoose.model("Post", postSchema)
+export const Post = mongoose.model("Post", postSchema)
