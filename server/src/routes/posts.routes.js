@@ -1,8 +1,8 @@
 ﻿import express from "express";
-import {requireAuth} from "../middleware/clerk-auth.js";
 import {User} from "../models/user.model.js";
-import {Post, postModel} from "../models/post.model.js";
+import {Post} from "../models/post.model.js";
 import calculateLevel from "../utils/calculate-level.js";
+import requireAuth from "../middleware/clerk-auth.js";
 
 const router = express.Router()
 
