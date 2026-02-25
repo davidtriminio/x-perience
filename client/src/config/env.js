@@ -1,3 +1,4 @@
 ﻿export const ENV = {
-    CLERK_PUBLISHABLE_KEY: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+    CLERK_PUBLISHABLE_KEY: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY,
+    API_URL: import.meta.env.API_URL
 }
