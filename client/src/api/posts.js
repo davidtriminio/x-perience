@@ -1,5 +1,5 @@
 ﻿import axios from "axios"
-import {ENV} from "../config/env.js"
+import {ENV} from "../config/env.js";
 
 const API = `${ENV.API_URL}/api/posts`
 
