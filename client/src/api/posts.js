@@ -8,5 +8,6 @@ export const getPosts = () => axios.get(API)
 export const createPost = (data, token) => axios.post(API, data, {
     headers: {
         Authorization: `Bearer ${token}`
-    }
+    },
+    withCredentials: true
 })
