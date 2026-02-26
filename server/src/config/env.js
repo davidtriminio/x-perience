@@ -8,5 +8,6 @@ export const ENV = {
   CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   NODE_ENV: process.env.NODE_ENV,
   INNGEST_EVENT_KEY: process.env.INNGEST_EVENT_KEY,
-  INNGEST_SIGNING_KEY: process.env.INNGEST_SIGNING_KEY
+  INNGEST_SIGNING_KEY: process.env.INNGEST_SIGNING_KEY,
+  CLIENT_URL: process.env.CLIENT_URL
 };

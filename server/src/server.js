@@ -4,16 +4,21 @@ import {connectDB} from "./db/db.js";
 import {clerkMiddleware} from "@clerk/express";
 import {serve} from "inngest/express"
 import {functions, inngest} from "./config/inngest.js";
+import postsRoutes from "./routes/posts.routes.js"
+import cors from "cors"
 
 const app = express()
 
 app.use(express.json())
+app.use(cors({origin: ENV.CLIENT_URL, credentials: true}))
 app.use(clerkMiddleware())
 app.use('/api/inngest', serve({client: inngest, functions}))
 
 app.get('/', (req, res) => {
     res.send("Connected")
 })
+
+app.use('/api/posts', postsRoutes)
 
 const startServer = async () => {
     try {
